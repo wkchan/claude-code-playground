@@ -1,0 +1,253 @@
+/*
+ * Toy Exchange — Theme CSS Variables
+ *
+ * Applied to [data-mode="default" | "kids" | "professional"] on the root element.
+ * Components use var(--...) custom properties for instant, no-rerender theme switching.
+ */
+
+/* ─────────────────────────────────────────
+   Default Mode (Slate + Amber, dark, professional)
+   ───────────────────────────────────────── */
+:root,
+[data-mode="default"] {
+  /* Backgrounds */
+  --bg-page:       #0f172a; /* slate-950 */
+  --bg-surface:    #111827; /* slate-900 */
+  --bg-elevated:   #1e293b; /* slate-800 */
+  --bg-input:      #1e293b; /* slate-800 */
+
+  /* Text */
+  --text-primary:   #ffffff;
+  --text-secondary: #cbd5e1; /* slate-300 */
+  --text-muted:     #94a3b8; /* slate-400 */
+  --text-faint:     #64748b; /* slate-500 */
+
+  /* Accent */
+  --accent:         #f59e0b; /* amber-500 */
+  --accent-hover:   #d97706; /* amber-600 */
+  --accent-text:    #fbbf24; /* amber-400 — for text on dark bg */
+
+  /* Borders */
+  --border:         #1e293b; /* slate-800 */
+  --border-hover:   #f59e0b; /* amber-500 */
+  --border-focus:   #f59e0b; /* amber-500 */
+
+  /* Navbar */
+  --navbar-bg:      #111827; /* slate-900 */
+  --navbar-border:  #1e293b; /* slate-800 */
+  --navbar-height:  4rem;    /* h-16 */
+
+  /* Card */
+  --card-image-height: 12rem; /* h-48 */
+  --card-padding:      1rem;  /* p-4 */
+  --card-radius:       0.75rem; /* rounded-xl */
+  --card-border-width: 1px;
+
+  /* Typography */
+  --font-body:    0.875rem;  /* 14px */
+  --font-small:   0.75rem;   /* 12px */
+  --font-mono:    0.875rem;  /* 14px */
+  --font-weight-body: 400;
+
+  /* Spacing */
+  --gap-grid:  1.5rem; /* gap-6 */
+
+  /* Animations */
+  --transition-fast:   200ms ease-in-out;
+  --transition-base:   300ms ease-out;
+  --transition-hover:  200ms linear;
+  --animation-enabled: 1;
+
+  /* Touch targets */
+  --touch-min:   2.75rem; /* 44px */
+  --btn-py:      0.5rem;  /* py-2 */
+  --btn-px:      1rem;    /* px-4 */
+  --btn-radius:  0.5rem;  /* rounded-lg */
+
+  /* Status */
+  --success-bg:   #064e3b; /* emerald-900 */
+  --success-text: #6ee7b7; /* emerald-300 */
+  --success-border:#047857;/* emerald-700 */
+  --error-bg:     #7f1d1d; /* red-900 */
+  --error-text:   #fca5a5; /* red-300 */
+  --error-border: #b91c1c; /* red-700 */
+}
+
+/* ─────────────────────────────────────────
+   Kids Mode (Indigo + Violet, light, playful)
+   ───────────────────────────────────────── */
+[data-mode="kids"] {
+  /* Backgrounds */
+  --bg-page:       #eef2ff; /* indigo-50 */
+  --bg-surface:    #ffffff;
+  --bg-elevated:   #e0e7ff; /* indigo-100 */
+  --bg-input:      #ffffff;
+
+  /* Text */
+  --text-primary:   #312e81; /* indigo-900 */
+  --text-secondary: #3730a3; /* indigo-800 */
+  --text-muted:     #4f46e5; /* indigo-600 */
+  --text-faint:     #6366f1; /* indigo-500 */
+
+  /* Accent */
+  --accent:         #8b5cf6; /* violet-500 */
+  --accent-hover:   #7c3aed; /* violet-600 */
+  --accent-text:    #7c3aed; /* violet-600 — for text on light bg */
+
+  /* Borders */
+  --border:         #c7d2fe; /* indigo-200 */
+  --border-hover:   #8b5cf6; /* violet-500 */
+  --border-focus:   #8b5cf6; /* violet-500 */
+
+  /* Navbar */
+  --navbar-bg:      #ffffff;
+  --navbar-border:  #c7d2fe; /* indigo-200 */
+  --navbar-height:  5rem;    /* h-20 */
+
+  /* Card */
+  --card-image-height: 14rem;   /* h-56 */
+  --card-padding:      1.5rem;  /* p-6 */
+  --card-radius:       1rem;    /* rounded-2xl */
+  --card-border-width: 2px;
+
+  /* Typography */
+  --font-body:    1rem;    /* 16px */
+  --font-small:   0.875rem; /* 14px */
+  --font-mono:    1rem;    /* 16px */
+  --font-weight-body: 500;
+
+  /* Spacing */
+  --gap-grid:  1.5rem; /* gap-6, wider on desktop */
+
+  /* Animations */
+  --transition-fast:   300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-base:   400ms ease-out;
+  --transition-hover:  300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animation-enabled: 1;
+
+  /* Touch targets */
+  --touch-min:   3.5rem;  /* 56px */
+  --btn-py:      0.75rem; /* py-3 */
+  --btn-px:      1.5rem;  /* px-6 */
+  --btn-radius:  0.75rem; /* rounded-xl */
+
+  /* Status */
+  --success-bg:   #d1fae5; /* emerald-100 */
+  --success-text: #065f46; /* emerald-800 */
+  --success-border:#6ee7b7;/* emerald-300 */
+  --error-bg:     #ffe4e6; /* rose-100 */
+  --error-text:   #9f1239; /* rose-800 */
+  --error-border: #fda4af; /* rose-300 */
+}
+
+/* ─────────────────────────────────────────
+   Professional Mode (Slate + Blue, dark, compact)
+   ───────────────────────────────────────── */
+[data-mode="professional"] {
+  /* Backgrounds */
+  --bg-page:       #111827; /* slate-900 */
+  --bg-surface:    #1e293b; /* slate-800 */
+  --bg-elevated:   #334155; /* slate-700 */
+  --bg-input:      #1e293b; /* slate-800 */
+
+  /* Text */
+  --text-primary:   #ffffff;
+  --text-secondary: #cbd5e1; /* slate-300 */
+  --text-muted:     #94a3b8; /* slate-400 */
+  --text-faint:     #64748b; /* slate-500 */
+
+  /* Accent */
+  --accent:         #3b82f6; /* blue-500 */
+  --accent-hover:   #2563eb; /* blue-600 */
+  --accent-text:    #60a5fa; /* blue-400 — for text on dark bg */
+
+  /* Borders */
+  --border:         #334155; /* slate-700 */
+  --border-hover:   #3b82f6; /* blue-500 */
+  --border-focus:   #3b82f6; /* blue-500 */
+
+  /* Navbar */
+  --navbar-bg:      #1e293b; /* slate-800 */
+  --navbar-border:  #334155; /* slate-700 */
+  --navbar-height:  3.5rem;  /* h-14 */
+
+  /* Card */
+  --card-image-height: 10rem; /* h-40 */
+  --card-padding:      0.75rem; /* p-3 */
+  --card-radius:       0.5rem;  /* rounded-lg */
+  --card-border-width: 1px;
+
+  /* Typography */
+  --font-body:    0.8125rem; /* 13px */
+  --font-small:   0.6875rem; /* 11px */
+  --font-mono:    0.8125rem; /* 13px */
+  --font-weight-body: 400;
+
+  /* Spacing */
+  --gap-grid:  0.5rem; /* gap-2 */
+
+  /* Animations */
+  --transition-fast:   0ms;
+  --transition-base:   0ms;
+  --transition-hover:  0ms;
+  --animation-enabled: 0;
+
+  /* Touch targets */
+  --touch-min:   2.5rem;  /* 40px */
+  --btn-py:      0.375rem; /* py-1.5 */
+  --btn-px:      0.75rem;  /* px-3 */
+  --btn-radius:  0.375rem; /* rounded */
+
+  /* Status */
+  --success-bg:   #064e3b; /* emerald-900 */
+  --success-text: #6ee7b7; /* emerald-300 */
+  --success-border:#047857;/* emerald-700 */
+  --error-bg:     #7f1d1d; /* red-900 */
+  --error-text:   #fca5a5; /* red-300 */
+  --error-border: #b91c1c; /* red-700 */
+}
+
+/* ─────────────────────────────────────────
+   Shared utility: Playful bounce keyframe (Kids only)
+   ───────────────────────────────────────── */
+@keyframes kids-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-6px) scale(1.04); }
+}
+
+@keyframes kids-pulse-urgent {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.75; transform: scale(1.06); }
+}
+
+@keyframes kids-celebration {
+  0%   { transform: scale(1) rotate(0deg); }
+  25%  { transform: scale(1.1) rotate(-3deg); }
+  50%  { transform: scale(1.15) rotate(3deg); }
+  75%  { transform: scale(1.1) rotate(-1deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+[data-mode="kids"] .kids-bounce {
+  animation: kids-bounce 1.5s ease-in-out infinite;
+}
+
+[data-mode="kids"] .kids-pulse-urgent {
+  animation: kids-pulse-urgent 1s ease-in-out infinite;
+}
+
+[data-mode="kids"] .kids-celebration {
+  animation: kids-celebration 0.6s ease-in-out;
+}
+
+/* Professional: disable all CSS transitions/animations */
+[data-mode="professional"] * {
+  transition-duration: 0ms !important;
+  animation-duration:  0ms !important;
+}
+
+/* Focus ring visible in all modes */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

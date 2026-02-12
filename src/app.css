@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import '$lib/styles/theme.css';
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--bg-page);
+	color: var(--text-primary);
+	font-size: var(--font-body);
+	font-weight: var(--font-weight-body);
+}
