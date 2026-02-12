@@ -12,8 +12,8 @@
 	// Dimensions
 	const width = 600;
 	const padding = { top: 20, right: 20, bottom: 40, left: 60 };
-	const chartWidth = width - padding.left - padding.right;
-	const chartHeight = height - padding.top - padding.bottom;
+	const chartWidth = $derived(width - padding.left - padding.right);
+	const chartHeight = $derived(height - padding.top - padding.bottom);
 
 	// Find min/max prices
 	const minPrice = $derived(Math.min(...history.map((p) => p.price)));

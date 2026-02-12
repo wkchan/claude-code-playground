@@ -13,7 +13,7 @@
 	}
 
 	const { data } = $props();
-	const { listing } = data;
+	const listing = $derived(data.listing);
 
 	const isCurrentUserSeller = $derived(listing.sellerId === currentUser.id);
 	const winningBid = $derived(getWinningBidForListing(listing.id));

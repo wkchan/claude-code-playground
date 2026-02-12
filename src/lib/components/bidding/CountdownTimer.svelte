@@ -9,9 +9,10 @@
 
 	const theme = useTheme();
 
-	let remaining = $state(Math.max(0, endTime - Date.now()));
+	let remaining = $state(0);
 
 	$effect(() => {
+		remaining = Math.max(0, endTime - Date.now());
 		const interval = setInterval(() => {
 			remaining = Math.max(0, endTime - Date.now());
 		}, 1000);

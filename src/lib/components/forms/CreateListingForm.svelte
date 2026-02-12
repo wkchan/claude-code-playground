@@ -92,7 +92,7 @@
 			class="w-full bg-slate-800 border {errors.description
 				? 'border-red-500'
 				: 'border-slate-700'} rounded-lg px-4 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"
-		/>
+		></textarea>
 		{#if errors.description}
 			<p class="text-red-400 text-xs mt-1">{errors.description}</p>
 		{/if}
