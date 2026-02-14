@@ -47,7 +47,7 @@
 	<div class="mt-6 mb-4 rounded-3xl overflow-hidden p-8 text-center"
 		style="background: linear-gradient(135deg, #ea0029 0%, #c8001f 100%);">
 		<h1 class="text-4xl font-black text-white mb-2">Toy Exchange</h1>
-		<p class="text-lg font-bold" style="color: #FFDA00;">Bid on Amazing Toys! 🎉</p>
+		<p class="text-lg font-bold" style="color: var(--navbar-accent);">Bid on Amazing Toys! 🎉</p>
 	</div>
 {/if}
 
