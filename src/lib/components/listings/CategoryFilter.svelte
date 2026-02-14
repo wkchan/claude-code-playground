@@ -111,8 +111,8 @@
 			aria-pressed={selected === null}
 			class="flex items-center gap-2 rounded-full font-black border-2 px-6 py-2.5 text-sm shadow-sm
 				{selected === null
-					? 'bg-[#ea0029] border-[#ea0029] text-white shadow-md'
-					: 'bg-white border-[#e5e7eb] text-[#1a1a1a] hover:border-[#ea0029] hover:text-[#ea0029]'}"
+					? 'bg-[var(--accent)] border-[var(--accent)] text-white shadow-md'
+					: 'bg-white border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--accent)] hover:text-[var(--accent)]'}"
 			class:kids-wiggle={hoveredCategory === null}
 			style="transition: all var(--transition-fast);"
 		>
@@ -129,8 +129,8 @@
 				aria-pressed={selected === category}
 				class="flex items-center gap-2 rounded-full font-black border-2 px-6 py-2.5 text-sm shadow-sm
 					{selected === category
-						? 'bg-[#ea0029] border-[#ea0029] text-white shadow-md'
-						: 'bg-white border-[#e5e7eb] text-[#1a1a1a] hover:border-[#ea0029] hover:text-[#ea0029]'}"
+						? 'bg-[var(--accent)] border-[var(--accent)] text-white shadow-md'
+						: 'bg-white border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--accent)] hover:text-[var(--accent)]'}"
 				class:kids-wiggle={hoveredCategory === category}
 				style="transition: all var(--transition-fast);"
 			>

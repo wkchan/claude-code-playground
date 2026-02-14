@@ -57,11 +57,11 @@
 		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 			{#each Array(count) as _, i (i)}
 				<div
-					class="bg-white border border-[#e5e7eb] rounded-2xl overflow-hidden"
+					class="bg-white border border-[var(--border)] rounded-2xl overflow-hidden"
 					style="animation: kids-bounce {1.2 + i * 0.15}s ease-in-out infinite; animation-delay: {i * 0.12}s;"
 				>
 					<!-- Red accent stripe -->
-					<div class="h-1.5 w-full bg-[#ea0029] opacity-30"></div>
+					<div class="h-1.5 w-full bg-[var(--accent)] opacity-30"></div>
 					<!-- Image placeholder -->
 					<div
 						class="h-56"

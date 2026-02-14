@@ -39,13 +39,25 @@
 	);
 </script>
 
+<style>
+	[data-mode="kids"] input::placeholder {
+		color: var(--text-placeholder);
+	}
+	[data-mode="kids"] input:focus {
+		border-color: var(--border-focus);
+	}
+	[data-mode="kids"] select:focus {
+		border-color: var(--border-focus);
+	}
+</style>
+
 <!-- Price Ticker -->
 <PriceTicker />
 
 {#if theme.isKids}
 	<!-- Kids: Hero Banner -->
 	<div class="mt-6 mb-4 rounded-3xl overflow-hidden p-8 text-center"
-		style="background: linear-gradient(135deg, #ea0029 0%, #c8001f 100%);">
+		style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);">
 		<h1 class="text-4xl font-black text-white mb-2">Toy Exchange</h1>
 		<p class="text-lg font-bold" style="color: var(--navbar-accent);">Bid on Amazing Toys! 🎉</p>
 	</div>
@@ -60,11 +72,13 @@
 			bind:value={searchQuery}
 			placeholder={theme.isKids ? 'Search for toys...' : 'Search toys...'}
 			class="{theme.isKids
-				? 'w-full bg-white border-2 border-[#e5e7eb] rounded-full px-5 py-3 text-[#1a1a1a] placeholder-[#aaaaaa] font-semibold focus:outline-none focus:border-[#ea0029] focus:ring-2 focus:ring-[#ea0029] shadow-sm'
+				? 'w-full bg-white border-2 rounded-full px-5 py-3 font-semibold focus:outline-none focus:ring-2 shadow-sm'
 				: 'w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500'}"
+			style="{theme.isKids ? 'border-color: var(--border); color: var(--text-primary); --tw-ring-color: var(--accent);' : ''}"
 		/>
 		<svg
-			class="absolute right-3 top-3 w-5 h-5 {theme.isKids ? 'text-[#ea0029]' : 'text-slate-500'}"
+			class="absolute right-3 top-3 w-5 h-5 {theme.isKids ? '' : 'text-slate-500'}"
+			style="{theme.isKids ? 'color: var(--accent);' : ''}"
 			fill="none"
 			stroke="currentColor"
 			viewBox="0 0 24 24"
@@ -81,18 +95,19 @@
 	<!-- Filters -->
 	<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 		<div class="flex-1">
-			<p class="text-sm mb-2 {theme.isKids ? 'font-black text-[#1a1a1a] uppercase tracking-wide' : 'text-slate-400'}">Categories</p>
+			<p class="text-sm mb-2 {theme.isKids ? 'font-black uppercase tracking-wide' : 'text-slate-400'}" style="{theme.isKids ? 'color: var(--text-primary);' : ''}">Categories</p>
 			<CategoryFilter bind:selected={selectedCategory} />
 		</div>
 
 		<div class="flex flex-col sm:flex-row gap-2 md:justify-end">
-			<label for="sort" class="block text-sm {theme.isKids ? 'font-black text-[#1a1a1a]' : 'text-slate-400'}">Sort by</label>
+			<label for="sort" class="block text-sm {theme.isKids ? 'font-black' : 'text-slate-400'}" style="{theme.isKids ? 'color: var(--text-primary);' : ''}">Sort by</label>
 			<select
 				id="sort"
 				bind:value={sortBy}
 				class="{theme.isKids
-					? 'bg-white border-2 border-[#e5e7eb] rounded-full px-4 py-2 text-[#1a1a1a] font-bold focus:outline-none focus:border-[#ea0029] shadow-sm'
+					? 'bg-white border-2 rounded-full px-4 py-2 font-bold focus:outline-none shadow-sm'
 					: 'bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-amber-500'}"
+				style="{theme.isKids ? 'border-color: var(--border); color: var(--text-primary);' : ''}"
 			>
 				<option value="newest">Newest</option>
 				<option value="price-high">Price: High to Low</option>
@@ -104,7 +119,7 @@
 </div>
 
 <!-- Results Count -->
-<p class="text-sm mt-6 mb-4 {theme.isKids ? 'font-semibold text-[#555555]' : 'text-slate-400'}">
+<p class="text-sm mt-6 mb-4 {theme.isKids ? 'font-semibold' : 'text-slate-400'}" style="{theme.isKids ? 'color: var(--text-muted);' : ''}">
 	Showing {filteredListings.length} active listing{filteredListings.length !== 1 ? 's' : ''}
 </p>
 
