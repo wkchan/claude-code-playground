@@ -90,6 +90,7 @@
   --text-secondary: #2d2d2d; /* slightly softer near-black */
   --text-muted:     #555555; /* medium gray */
   --text-faint:     #888888; /* light gray */
+  --text-placeholder: #aaaaaa; /* placeholder text */
 
   /* Accent — Mattel Red */
   --accent:         #ea0029; /* Mattel red */
