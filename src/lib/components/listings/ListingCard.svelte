@@ -79,10 +79,6 @@
 	.kids-category-text {
 		color: var(--accent);
 	}
-	.kids-divider {
-		border-color: var(--accent);
-		opacity: 0.15;
-	}
 	.kids-bid-amount {
 		color: var(--accent);
 	}
@@ -153,7 +149,7 @@
 			{/if}
 
 			<!-- Divider -->
-			<div class="my-3 {theme.isKids ? 'kids-divider' : ''}" style="border-top: {theme.isKids ? '2px' : '1px'} solid; border-color: {theme.isKids ? '' : 'var(--border)'}"></div>
+			<div class="my-3" style="border-top: {theme.isKids ? '2px' : '1px'} solid; border-color: {theme.isKids ? 'var(--accent)' : 'var(--border)'}; opacity: {theme.isKids ? '0.15' : '1'}"></div>
 
 			<!-- Price -->
 			{#if theme.isProfessional}
