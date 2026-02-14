@@ -48,10 +48,10 @@
 	};
 
 	const kidsSizeClasses: Record<string, string> = {
-		xs: 'px-2 py-1 text-xs',
-		sm: 'px-3 py-1.5 text-sm',
-		md: 'px-4 py-2 text-sm',
-		lg: 'px-5 py-2.5 text-base'
+		xs: 'px-2 py-1 text-[0.65rem]',
+		sm: 'px-2.5 py-1.5 text-[0.7rem]',
+		md: 'px-3 py-1.5 text-[0.8rem]',
+		lg: 'px-3.5 py-2 text-[0.9rem]'
 	};
 
 	const color = $derived(theme.isKids ? kidsColors[condition] : defaultColors[condition]);
@@ -61,7 +61,7 @@
 {#if theme.isKids}
 	<!-- Kids mode: sticker-style price tag badge -->
 	<span
-		class="inline-flex flex-col items-center justify-center font-black rounded-xl border-2 leading-none shadow-md"
+		class="inline-flex flex-col items-center justify-center font-black rounded-xl border-2 leading-none shadow-md {kidsSizeClasses[size]}"
 		style="
 			background-color: #ffffff;
 			border-color: #ea0029;
