@@ -107,9 +107,9 @@ describe('ConditionBadge — size classes', () => {
 
 	const kidsSizeClasses: Record<string, string> = {
 		xs: 'px-2 py-1 text-[0.65rem]',
-		sm: 'px-[9px] py-[5px] text-[0.7rem]',
+		sm: 'px-2.5 py-1.5 text-[0.7rem]',
 		md: 'px-3 py-1.5 text-[0.8rem]',
-		lg: 'px-[14px] py-2 text-[0.9rem]'
+		lg: 'px-3.5 py-2 text-[0.9rem]'
 	};
 
 	it('Kids mode uses larger padding than default', () => {
