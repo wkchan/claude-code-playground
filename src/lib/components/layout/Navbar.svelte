@@ -66,7 +66,7 @@
 					type="button"
 					onclick={toggleMenu}
 					class="md:hidden p-2 rounded-lg transition"
-					class:hover:bg-[#c8001f]={theme.isKids}
+					class:hover:bg-[var(--accent-hover)]={theme.isKids}
 					class:hover:bg-[var(--bg-elevated)]={!theme.isKids}
 					aria-label="Toggle menu"
 					aria-expanded={mobileMenuOpen}
