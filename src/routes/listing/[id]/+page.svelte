@@ -41,7 +41,7 @@
 			{#if listing.imageUrl}
 				<img src={listing.imageUrl} alt={listing.title} class="w-full h-96 object-cover" />
 			{:else}
-				<div class="w-full h-96 bg-gradient-to-br {theme.isKids ? 'from-[#fff5f5] to-[#ffffff]' : 'from-slate-800 to-slate-900'} flex items-center justify-center">
+				<div class="w-full h-96 bg-gradient-to-br {theme.isKids ? 'from-[color:var(--bg-elevated)] to-[color:var(--bg-surface)]' : 'from-slate-800 to-slate-900'} flex items-center justify-center">
 					<div class="{theme.isKids ? '' : 'text-slate-500'} text-center" style="{theme.isKids ? 'color: var(--text-faint);' : ''}">
 						<svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path
