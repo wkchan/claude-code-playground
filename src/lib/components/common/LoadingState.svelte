@@ -69,10 +69,10 @@
 					></div>
 					<!-- Text lines placeholder -->
 					<div class="p-6 space-y-3">
-						<div class="h-3 rounded-full w-1/3" style="background-color: var(--border);"></div>
-						<div class="h-4 rounded-full w-5/6" style="background-color: var(--border);"></div>
-						<div class="h-4 rounded-full w-2/3" style="background-color: var(--border);"></div>
-						<div class="h-8 rounded-xl w-1/2 mt-4" style="background-color: var(--border);"></div>
+						<div class="h-3 rounded-full w-1/3" style="background-color: var(--bg-skeleton);"></div>
+						<div class="h-4 rounded-full w-5/6" style="background-color: var(--bg-skeleton);"></div>
+						<div class="h-4 rounded-full w-2/3" style="background-color: var(--bg-skeleton);"></div>
+						<div class="h-8 rounded-xl w-1/2 mt-4" style="background-color: var(--bg-skeleton);"></div>
 					</div>
 				</div>
 			{/each}
