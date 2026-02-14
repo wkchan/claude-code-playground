@@ -90,6 +90,7 @@
   --text-secondary: #2d2d2d; /* slightly softer near-black */
   --text-muted:     #555555; /* medium gray */
   --text-faint:     #888888; /* light gray */
+  --text-placeholder: #aaaaaa; /* placeholder text */
 
   /* Accent — Mattel Red */
   --accent:         #ea0029; /* Mattel red */
@@ -100,6 +101,9 @@
   --border:         #e5e7eb; /* neutral light gray */
   --border-hover:   #ea0029; /* red on hover */
   --border-focus:   #ea0029; /* red focus rings */
+  
+  /* Skeleton/Placeholder backgrounds */
+  --skeleton-bg:    #f3f4f6; /* gray-100 for loading placeholders */
 
   /* Navbar — Bold Mattel Red */
   --navbar-bg:      #ea0029; /* bold Mattel red navbar */

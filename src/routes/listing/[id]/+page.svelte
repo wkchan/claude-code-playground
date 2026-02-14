@@ -36,13 +36,13 @@
 		<!-- Image -->
 		<div class="{panelClass} overflow-hidden">
 			{#if theme.isKids}
-				<div class="h-1.5 w-full bg-[#ea0029]"></div>
+				<div class="h-1.5 w-full" style="background-color: var(--accent);"></div>
 			{/if}
 			{#if listing.imageUrl}
 				<img src={listing.imageUrl} alt={listing.title} class="w-full h-96 object-cover" />
 			{:else}
 				<div class="w-full h-96 bg-gradient-to-br {theme.isKids ? 'from-[#fff5f5] to-[#ffffff]' : 'from-slate-800 to-slate-900'} flex items-center justify-center">
-					<div class="{theme.isKids ? 'text-[#888888]' : 'text-slate-500'} text-center">
+					<div class="{theme.isKids ? '' : 'text-slate-500'} text-center" style="{theme.isKids ? 'color: var(--text-faint);' : ''}">
 						<svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path
 								stroke-linecap="round"
@@ -59,7 +59,7 @@
 
 		<!-- Price Chart -->
 		<div class="{panelClass} p-6">
-			<h3 class="font-semibold mb-4 {theme.isKids ? 'text-[#1a1a1a]' : 'text-white'}">Price History (30 days)</h3>
+			<h3 class="font-semibold mb-4 {theme.isKids ? '' : 'text-white'}" style="{theme.isKids ? 'color: var(--text-primary);' : ''}">Price History (30 days)</h3>
 			<PriceChart history={listing.priceHistory} height={300} />
 		</div>
 	</div>
@@ -68,8 +68,8 @@
 	<div class="space-y-6">
 		<!-- Title and Category -->
 		<div>
-			<p class="text-xs mb-2 uppercase tracking-wide {theme.isKids ? 'font-black text-[#ea0029]' : 'text-slate-400'}">{listing.category}</p>
-			<h1 class="text-3xl mb-4 {theme.isKids ? 'font-black text-[#1a1a1a]' : 'font-bold text-white'}">{listing.title}</h1>
+			<p class="text-xs mb-2 uppercase tracking-wide {theme.isKids ? 'font-black' : 'text-slate-400'}" style="{theme.isKids ? 'color: var(--accent);' : ''}">{listing.category}</p>
+			<h1 class="text-3xl mb-4 {theme.isKids ? 'font-black' : 'font-bold text-white'}" style="{theme.isKids ? 'color: var(--text-primary);' : ''}">{listing.title}</h1>
 
 			<div class="flex items-center gap-2">
 				<ConditionBadge condition={listing.condition} size="md" />
@@ -78,30 +78,30 @@
 
 		<!-- Seller Info -->
 		<div class="{panelClass} p-4">
-			<p class="text-xs mb-1 {theme.isKids ? 'font-black text-[#ea0029] uppercase tracking-wide' : 'text-slate-400'}">{theme.isKids ? 'SELLER' : 'Seller'}</p>
-			<p class="font-semibold {theme.isKids ? 'text-[#1a1a1a]' : 'text-white'}">{listing.sellerUsername}</p>
+			<p class="text-xs mb-1 {theme.isKids ? 'font-black uppercase tracking-wide' : 'text-slate-400'}" style="{theme.isKids ? 'color: var(--accent);' : ''}">{theme.isKids ? 'SELLER' : 'Seller'}</p>
+			<p class="font-semibold {theme.isKids ? '' : 'text-white'}" style="{theme.isKids ? 'color: var(--text-primary);' : ''}">{listing.sellerUsername}</p>
 			{#if isCurrentUserSeller}
-				<p class="text-xs mt-2 {theme.isKids ? 'text-[#ea0029] font-bold' : 'text-amber-400'}">{theme.isKids ? '✓ Your Listing' : 'This is your listing'}</p>
+				<p class="text-xs mt-2 {theme.isKids ? 'font-bold' : 'text-amber-400'}" style="{theme.isKids ? 'color: var(--accent);' : ''}">{theme.isKids ? '✓ Your Listing' : 'This is your listing'}</p>
 			{/if}
 		</div>
 
 		<!-- Current Bid -->
 		<div class="{panelClass} p-4">
-			<p class="text-xs mb-1 {theme.isKids ? 'font-black text-[#ea0029] uppercase tracking-wide' : 'text-slate-400'}">{theme.isKids ? 'CURRENT BID' : 'Current Bid'}</p>
-			<p class="text-4xl font-mono font-bold mb-2 {theme.isKids ? 'text-[#ea0029]' : 'text-amber-400'}">{formatCents(listing.currentBid)}</p>
-			<p class="text-xs {theme.isKids ? 'text-[#555555]' : 'text-slate-400'}">{listing.bids.length} bid{listing.bids.length !== 1 ? 's' : ''} placed</p>
+			<p class="text-xs mb-1 {theme.isKids ? 'font-black uppercase tracking-wide' : 'text-slate-400'}" style="{theme.isKids ? 'color: var(--accent);' : ''}">{theme.isKids ? 'CURRENT BID' : 'Current Bid'}</p>
+			<p class="text-4xl font-mono font-bold mb-2 {theme.isKids ? '' : 'text-amber-400'}" style="{theme.isKids ? 'color: var(--accent);' : ''}">{formatCents(listing.currentBid)}</p>
+			<p class="text-xs {theme.isKids ? '' : 'text-slate-400'}" style="{theme.isKids ? 'color: var(--text-muted);' : ''}">{listing.bids.length} bid{listing.bids.length !== 1 ? 's' : ''} placed</p>
 		</div>
 
 		<!-- Winning Status -->
 		{#if currentUserIsWinning}
-			<div class="{theme.isKids ? 'bg-[#fff5f5] border-2 border-[#ea0029]' : 'bg-emerald-900 border border-emerald-700'} rounded-xl p-4">
-				<p class="{theme.isKids ? 'text-[#ea0029] font-black' : 'text-emerald-200 font-medium'}">🏆 {theme.isKids ? 'You\'re Winning!' : 'You are currently winning this auction!'}</p>
+			<div class="{theme.isKids ? 'bg-[#fff5f5] border-2' : 'bg-emerald-900 border border-emerald-700'} rounded-xl p-4" style="{theme.isKids ? 'border-color: var(--accent);' : ''}">
+				<p class="{theme.isKids ? 'font-black' : 'text-emerald-200 font-medium'}" style="{theme.isKids ? 'color: var(--accent);' : ''}">🏆 {theme.isKids ? 'You\'re Winning!' : 'You are currently winning this auction!'}</p>
 			</div>
 		{/if}
 
 		<!-- Timer -->
 		<div class="{panelClass} p-4">
-			<p class="text-xs mb-3 {theme.isKids ? 'font-black text-[#ea0029] uppercase tracking-wide' : 'text-slate-400'}">{theme.isKids ? 'TIME LEFT' : 'Time Remaining'}</p>
+			<p class="text-xs mb-3 {theme.isKids ? 'font-black uppercase tracking-wide' : 'text-slate-400'}" style="{theme.isKids ? 'color: var(--accent);' : ''}">{theme.isKids ? 'TIME LEFT' : 'Time Remaining'}</p>
 			<CountdownTimer endTime={listing.endTime} />
 		</div>
 
@@ -109,11 +109,11 @@
 		{#if !isCurrentUserSeller && listing.status === 'active'}
 			<BidForm {listing} />
 		{:else if isCurrentUserSeller && listing.status === 'active'}
-			<div class="{panelClass} p-4 text-center {theme.isKids ? 'text-[#555555]' : 'text-slate-400'}">
+			<div class="{panelClass} p-4 text-center {theme.isKids ? '' : 'text-slate-400'}" style="{theme.isKids ? 'color: var(--text-muted);' : ''}">
 				{theme.isKids ? '🚫 You can\'t bid on your own listing!' : 'You cannot bid on your own listing'}
 			</div>
 		{:else}
-			<div class="{panelClass} p-4 text-center {theme.isKids ? 'text-[#555555]' : 'text-slate-400'}">
+			<div class="{panelClass} p-4 text-center {theme.isKids ? '' : 'text-slate-400'}" style="{theme.isKids ? 'color: var(--text-muted);' : ''}">
 				{theme.isKids ? '⏰ This auction has ended' : 'This auction has ended'}
 			</div>
 		{/if}
@@ -126,7 +126,7 @@
 <!-- Description Section -->
 <div class="mt-8 max-w-4xl">
 	<div class="{panelClass} p-6">
-		<h2 class="font-semibold mb-4 {theme.isKids ? 'text-[#1a1a1a]' : 'text-white'}">{theme.isKids ? '📖 ABOUT THIS TOY' : 'Description'}</h2>
-		<p class="leading-relaxed {theme.isKids ? 'text-[#555555]' : 'text-slate-300'}">{listing.description}</p>
+		<h2 class="font-semibold mb-4 {theme.isKids ? '' : 'text-white'}" style="{theme.isKids ? 'color: var(--text-primary);' : ''}">{theme.isKids ? '📖 ABOUT THIS TOY' : 'Description'}</h2>
+		<p class="leading-relaxed {theme.isKids ? '' : 'text-slate-300'}" style="{theme.isKids ? 'color: var(--text-muted);' : ''}">{listing.description}</p>
 	</div>
 </div>

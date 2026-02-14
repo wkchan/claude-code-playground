@@ -57,7 +57,7 @@
 		aria-label="Switch display mode. Current: {currentMode.label}"
 		class="flex items-center gap-2 px-3 text-sm font-medium
 			{theme.isKids
-				? 'rounded-full border border-white bg-white text-[#1a1a1a] hover:bg-[#FFDA00] hover:border-[#FFDA00]'
+				? 'rounded-full border border-white bg-white text-[var(--text-primary)] hover:bg-[#FFDA00] hover:border-[#FFDA00]'
 				: 'rounded-lg border border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:border-[var(--border-hover)]'}"
 		style="min-height: var(--touch-min); padding-top: var(--btn-py); padding-bottom: var(--btn-py); transition: all var(--transition-fast);"
 	>
@@ -81,7 +81,7 @@
 			aria-label="Display mode options"
 			class="absolute right-0 mt-2 w-52 overflow-hidden shadow-xl z-50
 				{theme.isKids
-					? 'rounded-2xl border-2 border-[#ea0029] bg-white'
+					? 'rounded-2xl border-2 border-[var(--accent)] bg-white'
 					: 'rounded-xl border border-[var(--border)] bg-[var(--bg-surface)]'}"
 		>
 			{#each modes as modeOption (modeOption.value)}
