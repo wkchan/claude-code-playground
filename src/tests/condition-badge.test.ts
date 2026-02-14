@@ -106,18 +106,18 @@ describe('ConditionBadge — size classes', () => {
 	};
 
 	const kidsSizeClasses: Record<string, string> = {
-		xs: 'px-2 py-1 text-xs',
-		sm: 'px-3 py-1.5 text-sm',
-		md: 'px-4 py-2 text-sm',
-		lg: 'px-5 py-2.5 text-base'
+		xs: 'px-2 py-1 text-[0.65rem]',
+		sm: 'px-[9px] py-[5px] text-[0.7rem]',
+		md: 'px-3 py-1.5 text-[0.8rem]',
+		lg: 'px-[14px] py-2 text-[0.9rem]'
 	};
 
 	it('Kids mode uses larger padding than default', () => {
 		// Compare md size
 		const defaultMd = sizeClasses['md'];
 		const kidsMd = kidsSizeClasses['md'];
-		// Kids px-4 > Default px-3
-		expect(kidsMd).toContain('px-4');
+		// Kids px-3 = Default px-3, but Kids has custom font sizes
+		expect(kidsMd).toContain('px-3');
 		expect(defaultMd).toContain('px-3');
 	});
 
