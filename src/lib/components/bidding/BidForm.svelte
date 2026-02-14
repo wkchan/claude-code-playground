@@ -105,7 +105,7 @@
 >
 	<!-- Kids: safety/helpful header -->
 	{#if theme.isKids}
-		<div class="bg-[#fff5f5] rounded-2xl p-4 border-2 border-[var(--accent)]">
+		<div class="bg-[var(--bg-elevated)] rounded-2xl p-4 border-2 border-[var(--accent)]">
 			<p class="text-sm font-black" style="color: var(--accent);">
 				🎮 Place Your Bid!
 			</p>
