@@ -72,8 +72,8 @@
 	const buttonClasses = $derived.by(() => {
 		if (theme.isKids) {
 			return isValid
-				? 'px-8 py-3 rounded-full font-black text-base text-white bg-[#ea0029] hover:bg-[#c8001f] hover:scale-105 shadow-lg shadow-red-200 active:scale-95'
-				: 'px-8 py-3 rounded-full font-black text-base text-[#888888] bg-[#f3f4f6] cursor-not-allowed opacity-60';
+				? 'px-8 py-3 rounded-full font-black text-base text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] hover:scale-105 shadow-lg shadow-red-200 active:scale-95'
+				: 'px-8 py-3 rounded-full font-black text-base text-[var(--text-faint)] bg-[var(--bg-elevated)] cursor-not-allowed opacity-60';
 		}
 		if (theme.isProfessional) {
 			return isValid
@@ -105,11 +105,11 @@
 >
 	<!-- Kids: safety/helpful header -->
 	{#if theme.isKids}
-		<div class="bg-[#fff5f5] rounded-2xl p-4 border-2 border-[#ea0029]">
-			<p class="text-sm font-black" style="color: #ea0029;">
+		<div class="bg-[#fff5f5] rounded-2xl p-4 border-2 border-[var(--accent)]">
+			<p class="text-sm font-black" style="color: var(--accent);">
 				🎮 Place Your Bid!
 			</p>
-			<p class="text-xs mt-1 font-semibold" style="color: #555555;">
+			<p class="text-xs mt-1 font-semibold" style="color: var(--text-muted);">
 				Ask a parent before bidding!
 			</p>
 		</div>
