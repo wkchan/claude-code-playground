@@ -64,12 +64,6 @@
 		if (theme.isProfessional) return 'text-sm font-mono font-bold text-[var(--accent-text)]';
 		return 'text-lg font-mono font-bold text-amber-400';
 	});
-
-	const dividerClasses = $derived.by(() => {
-		if (theme.isKids) return 'my-3 border-t-2 border-[#ea0029] border-opacity-15';
-		if (theme.isProfessional) return 'my-3 border-t border-[var(--border)]';
-		return 'my-3 border-t border-[var(--border)]';
-	});
 </script>
 
 <style>
