@@ -43,8 +43,8 @@
 {#if listings.length === 0}
 	<div class={emptyClasses}>
 		{#if theme.isKids}
-			<p class="text-2xl font-black" style="color: #ea0029;">No Toys Found! 😢</p>
-			<p class="text-base font-semibold mt-2" style="color: #555555;">Try changing your filters.</p>
+			<p class="text-2xl font-black" style="color: var(--accent);">No Toys Found! 😢</p>
+			<p class="text-base font-semibold mt-2" style="color: var(--text-muted);">Try changing your filters.</p>
 		{:else if theme.isProfessional}
 			<p>NO_RESULTS — adjust filters to see listings</p>
 		{:else}

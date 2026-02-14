@@ -74,11 +74,11 @@
 		"
 		title="Grade {condition} - {CONDITION_LABELS[condition]} — {kidsStarCount[condition]} out of 5 stars"
 	>
-		<span style="color: #ea0029; font-size: 1.1em;">{condition}</span>
+		<span style="color: var(--accent); font-size: 1.1em;">{condition}</span>
 		<span aria-hidden="true" class="text-yellow-400" style="font-size: 0.9em; letter-spacing: -0.05em;">{kidsStars[condition]}</span>
 		<span class="sr-only">{kidsStarCount[condition]} out of 5 stars —</span>
 		{#if size === 'lg'}
-			<span class="mt-0.5 text-[0.6em]" style="color: #555555;">{CONDITION_LABELS[condition]}</span>
+			<span class="mt-0.5 text-[0.6em]" style="color: var(--text-muted);">{CONDITION_LABELS[condition]}</span>
 		{/if}
 	</span>
 {:else if theme.isProfessional}
