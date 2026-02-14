@@ -60,7 +60,13 @@
 		<!-- Price Chart -->
 		<div class="{panelClass} p-6">
 			<h3 class="font-semibold mb-4 {theme.isKids ? '' : 'text-white'}" style="{theme.isKids ? 'color: var(--text-primary);' : ''}">Price History (30 days)</h3>
-			<PriceChart history={listing.priceHistory} height={300} />
+			<PriceChart
+				history={listing.priceHistory}
+				height={300}
+				lineColor={theme.isKids ? '#ea0029' : undefined}
+				gridColor={theme.isKids ? '#ffe5ea' : undefined}
+				backgroundColor={theme.isKids ? '#ffffff' : undefined}
+			/>
 		</div>
 	</div>
 
