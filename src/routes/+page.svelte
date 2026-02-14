@@ -43,12 +43,6 @@
 	[data-mode="kids"] input::placeholder {
 		color: var(--text-placeholder);
 	}
-	[data-mode="kids"] input:focus {
-		border-color: var(--border-focus);
-	}
-	[data-mode="kids"] select:focus {
-		border-color: var(--border-focus);
-	}
 </style>
 
 <!-- Price Ticker -->
