@@ -59,15 +59,28 @@
 </script>
 
 {#if theme.isKids}
-	<!-- Kids mode: emoji stars + text label -->
+	<!-- Kids mode: sticker-style price tag badge -->
 	<span
-		class="{color.bg} {color.text} rounded-full font-bold {sizeClass} inline-flex items-center gap-1 border-2"
-		style="border-color: {condition === 'A' ? '#6ee7b7' : condition === 'B' ? '#93c5fd' : condition === 'C' ? '#fcd34d' : condition === 'D' ? '#fdba74' : '#fca5a5'};"
+		class="inline-flex flex-col items-center justify-center font-black rounded-xl border-2 leading-none shadow-md"
+		style="
+			background-color: #ffffff;
+			border-color: #ea0029;
+			color: #1a1a1a;
+			transform: rotate(-2deg);
+			box-shadow: 2px 2px 0px #ea0029;
+			{size === 'xs' ? 'padding: 4px 8px; font-size: 0.65rem;' :
+			 size === 'sm' ? 'padding: 5px 9px; font-size: 0.7rem;' :
+			 size === 'md' ? 'padding: 6px 12px; font-size: 0.8rem;' :
+			                'padding: 8px 14px; font-size: 0.9rem;'}
+		"
 		title="Grade {condition} - {CONDITION_LABELS[condition]} — {kidsStarCount[condition]} out of 5 stars"
 	>
-		<span aria-hidden="true">{kidsStars[condition]}</span>
+		<span style="color: #ea0029; font-size: 1.1em;">{condition}</span>
+		<span aria-hidden="true" class="text-yellow-400" style="font-size: 0.9em; letter-spacing: -0.05em;">{kidsStars[condition]}</span>
 		<span class="sr-only">{kidsStarCount[condition]} out of 5 stars —</span>
-		{CONDITION_LABELS[condition]}
+		{#if size === 'lg'}
+			<span class="mt-0.5 text-[0.6em]" style="color: #555555;">{CONDITION_LABELS[condition]}</span>
+		{/if}
 	</span>
 {:else if theme.isProfessional}
 	<!-- Professional mode: monospace, compact -->

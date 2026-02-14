@@ -23,7 +23,7 @@
 
 	const cardClasses = $derived.by(() => {
 		if (theme.isKids) {
-			return 'bg-white border-2 border-[var(--border)] rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl hover:border-[var(--border-hover)] h-full flex flex-col';
+			return 'bg-white border border-[#e5e7eb] rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:shadow-[0_8px_30px_rgba(234,0,41,0.15)] h-full flex flex-col';
 		}
 		if (theme.isProfessional) {
 			return 'bg-[var(--bg-surface)] border border-[var(--border)] rounded-lg overflow-hidden hover:border-[var(--border-hover)] h-full flex flex-col';
@@ -60,7 +60,7 @@
 	});
 
 	const bidAmountClasses = $derived.by(() => {
-		if (theme.isKids) return 'text-xl font-black font-mono text-[var(--accent)]';
+		if (theme.isKids) return 'text-2xl font-black font-mono text-[#ea0029]';
 		if (theme.isProfessional) return 'text-sm font-mono font-bold text-[var(--accent-text)]';
 		return 'text-lg font-mono font-bold text-amber-400';
 	});
@@ -68,6 +68,10 @@
 
 <a href="/listing/{listing.id}" class="block group">
 	<div class="{cardClasses}" style="transition: transform var(--transition-hover), box-shadow var(--transition-hover), border-color var(--transition-hover);">
+		{#if theme.isKids}
+			<!-- Kids mode: red accent stripe at top -->
+			<div class="h-1.5 w-full bg-[#ea0029]"></div>
+		{/if}
 		<!-- Image -->
 		<div
 			class="bg-gradient-to-br from-[var(--bg-elevated)] to-[var(--bg-surface)] {imageHeightClass} flex items-center justify-center overflow-hidden relative"
@@ -104,7 +108,7 @@
 		<div class="{paddingClass} flex-1 flex flex-col">
 			<!-- Category -->
 			{#if theme.isKids}
-				<p class="text-sm font-semibold mb-2 flex items-center gap-1" style="color: var(--text-muted);">
+				<p class="text-xs font-black mb-1 flex items-center gap-1.5 uppercase tracking-wide" style="color: #ea0029;">
 					<span aria-hidden="true">{categoryEmoji[listing.category] ?? '🎁'}</span>
 					{listing.category}
 				</p>
@@ -127,7 +131,7 @@
 			{/if}
 
 			<!-- Divider -->
-			<div class="border-t my-3" style="border-color: var(--border);"></div>
+			<div class="my-3" style="border-top: {theme.isKids ? '2px' : '1px'} solid #ea0029; opacity: {theme.isKids ? '0.15' : '1'}; border-color: {theme.isKids ? '#ea0029' : 'var(--border)'}"></div>
 
 			<!-- Price -->
 			{#if theme.isProfessional}
