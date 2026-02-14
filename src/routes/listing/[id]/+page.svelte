@@ -25,7 +25,7 @@
 	// Panel styling helper for kids mode
 	const panelClass = $derived(
 		theme.isKids
-			? 'bg-white border-2 border-[#e5e7eb] rounded-2xl shadow-sm'
+			? 'bg-white border-2 border-[color:var(--border)] rounded-2xl shadow-sm'
 			: 'bg-slate-900 border border-slate-800 rounded-xl'
 	);
 </script>
