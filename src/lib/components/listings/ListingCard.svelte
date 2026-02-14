@@ -64,6 +64,12 @@
 		if (theme.isProfessional) return 'text-sm font-mono font-bold text-[var(--accent-text)]';
 		return 'text-lg font-mono font-bold text-amber-400';
 	});
+
+	const dividerClasses = $derived.by(() => {
+		if (theme.isKids) return 'my-3 border-t-2 border-[#ea0029] opacity-15';
+		if (theme.isProfessional) return 'my-3 border-t border-[var(--border)]';
+		return 'my-3 border-t border-[var(--border)]';
+	});
 </script>
 
 <a href="/listing/{listing.id}" class="block group">
@@ -131,7 +137,7 @@
 			{/if}
 
 			<!-- Divider -->
-			<div class="my-3" style="border-top: {theme.isKids ? '2px' : '1px'} solid #ea0029; opacity: {theme.isKids ? '0.15' : '1'}; border-color: {theme.isKids ? '#ea0029' : 'var(--border)'}"></div>
+			<div class={dividerClasses}></div>
 
 			<!-- Price -->
 			{#if theme.isProfessional}
