@@ -112,13 +112,13 @@ describe('ConditionBadge — size classes', () => {
 		lg: 'px-3.5 py-2 text-[0.9rem]'
 	};
 
-	it('Kids mode uses larger padding than default', () => {
-		// Compare md size
-		const defaultMd = sizeClasses['md'];
-		const kidsMd = kidsSizeClasses['md'];
-		// Kids px-3 = Default px-3, but Kids has custom font sizes
-		expect(kidsMd).toContain('px-3');
-		expect(defaultMd).toContain('px-3');
+	it('Kids mode defines size classes with custom font sizes', () => {
+		// Kids mode uses inline styles for actual padding in the component,
+		// so these class definitions are primarily for reference
+		expect(kidsSizeClasses['xs']).toContain('text-[0.65rem]');
+		expect(kidsSizeClasses['sm']).toContain('text-[0.7rem]');
+		expect(kidsSizeClasses['md']).toContain('text-[0.8rem]');
+		expect(kidsSizeClasses['lg']).toContain('text-[0.9rem]');
 	});
 
 	it('all four sizes are defined for default mode', () => {
