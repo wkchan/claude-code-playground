@@ -23,7 +23,7 @@
 
 	const cardClasses = $derived.by(() => {
 		if (theme.isKids) {
-			return 'bg-white border-2 border-[var(--border)] rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl hover:border-[var(--border-hover)] h-full flex flex-col';
+			return 'bg-white border overflow-hidden hover:-translate-y-2 hover:shadow-2xl h-full flex flex-col rounded-2xl';
 		}
 		if (theme.isProfessional) {
 			return 'bg-[var(--bg-surface)] border border-[var(--border)] rounded-lg overflow-hidden hover:border-[var(--border-hover)] h-full flex flex-col';
@@ -60,14 +60,36 @@
 	});
 
 	const bidAmountClasses = $derived.by(() => {
-		if (theme.isKids) return 'text-xl font-black font-mono text-[var(--accent)]';
+		if (theme.isKids) return 'text-2xl font-black font-mono';
 		if (theme.isProfessional) return 'text-sm font-mono font-bold text-[var(--accent-text)]';
 		return 'text-lg font-mono font-bold text-amber-400';
 	});
 </script>
 
+<style>
+	.kids-card {
+		border-color: var(--border);
+	}
+	.kids-card:hover {
+		box-shadow: 0 8px 30px rgba(234, 0, 41, 0.15);
+	}
+	.kids-accent-stripe {
+		background-color: var(--accent);
+	}
+	.kids-category-text {
+		color: var(--accent);
+	}
+	.kids-bid-amount {
+		color: var(--accent);
+	}
+</style>
+
 <a href="/listing/{listing.id}" class="block group">
-	<div class="{cardClasses}" style="transition: transform var(--transition-hover), box-shadow var(--transition-hover), border-color var(--transition-hover);">
+	<div class="{cardClasses} {theme.isKids ? 'kids-card' : ''}" style="transition: transform var(--transition-hover), box-shadow var(--transition-hover), border-color var(--transition-hover);">
+		{#if theme.isKids}
+			<!-- Kids mode: red accent stripe at top -->
+			<div class="h-1.5 w-full kids-accent-stripe"></div>
+		{/if}
 		<!-- Image -->
 		<div
 			class="bg-gradient-to-br from-[var(--bg-elevated)] to-[var(--bg-surface)] {imageHeightClass} flex items-center justify-center overflow-hidden relative"
@@ -104,7 +126,7 @@
 		<div class="{paddingClass} flex-1 flex flex-col">
 			<!-- Category -->
 			{#if theme.isKids}
-				<p class="text-sm font-semibold mb-2 flex items-center gap-1" style="color: var(--text-muted);">
+				<p class="text-xs font-black mb-1 flex items-center gap-1.5 uppercase tracking-wide kids-category-text">
 					<span aria-hidden="true">{categoryEmoji[listing.category] ?? '🎁'}</span>
 					{listing.category}
 				</p>
@@ -127,7 +149,7 @@
 			{/if}
 
 			<!-- Divider -->
-			<div class="border-t my-3" style="border-color: var(--border);"></div>
+			<div class="my-3" style="border-top: {theme.isKids ? '2px' : '1px'} solid; border-color: {theme.isKids ? 'var(--accent)' : 'var(--border)'}; opacity: {theme.isKids ? '0.15' : '1'}"></div>
 
 			<!-- Price -->
 			{#if theme.isProfessional}
@@ -141,7 +163,7 @@
 			{:else}
 				<div class="mb-4">
 					<p class={bidLabelClasses}>Current Bid</p>
-					<p class={bidAmountClasses}>{formatCents(listing.currentBid)}</p>
+					<p class="{bidAmountClasses} {theme.isKids ? 'kids-bid-amount' : ''}">{formatCents(listing.currentBid)}</p>
 					<p class="text-xs mt-0.5" style="color: var(--text-faint);">
 						{listing.bids.length} bid{listing.bids.length !== 1 ? 's' : ''}
 					</p>

@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { currentUser } from '../../stores/user.svelte.js';
+	import { useTheme } from '../../stores/theme.svelte.js';
 	import ModeSelector from './ModeSelector.svelte';
+
+	const theme = useTheme();
 
 	let mobileMenuOpen = $state(false);
 
@@ -19,30 +22,41 @@
 			<a href="/" class="flex items-center gap-2">
 				<div
 					class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-					style="background-color: var(--accent);"
+					style="background-color: var(--navbar-accent);"
 				>
 					<span class="text-white font-bold text-sm">TE</span>
 				</div>
-				<span
-					class="font-bold text-lg hidden sm:inline"
-					style="color: var(--text-primary);"
-				>
-					Toy Exchange
-				</span>
+				{#if theme.isKids}
+					<div class="hidden sm:flex flex-col gap-0">
+						<span class="font-black text-2xl leading-none" style="color: var(--navbar-text);">
+							Toy Exchange
+						</span>
+						<span class="text-xs font-bold" style="color: #FFDA00;">
+							🧸 Buy & Sell Toys!
+						</span>
+					</div>
+				{:else}
+					<span
+						class="font-bold text-lg hidden sm:inline"
+						style="color: var(--navbar-text);"
+					>
+						Toy Exchange
+					</span>
+				{/if}
 			</a>
 
 			<!-- Desktop Navigation -->
 			<div class="hidden md:flex items-center gap-8">
-				<a href="/" class="transition" style="color: var(--text-secondary);">Market</a>
-				<a href="/create" class="transition" style="color: var(--text-secondary);">Create Listing</a>
-				<a href="/dashboard" class="transition" style="color: var(--text-secondary);">Dashboard</a>
+				<a href="/" class="hover:opacity-100 transition" style="color: var(--navbar-text); opacity: 0.9;">Market</a>
+				<a href="/create" class="hover:opacity-100 transition" style="color: var(--navbar-text); opacity: 0.9;">Create Listing</a>
+				<a href="/dashboard" class="hover:opacity-100 transition" style="color: var(--navbar-text); opacity: 0.9;">Dashboard</a>
 			</div>
 
 			<!-- Right side: user + mode switcher -->
 			<div class="flex items-center gap-3">
 				<div class="text-right hidden sm:block">
-					<p class="text-sm font-medium" style="color: var(--text-primary);">{currentUser.username}</p>
-					<p class="text-xs" style="color: var(--text-muted);">Member</p>
+					<p class="text-sm font-medium" style="color: var(--navbar-text);">{currentUser.username}</p>
+					<p class="text-xs" style="color: var(--navbar-text); opacity: 0.9;">Member</p>
 				</div>
 
 				<ModeSelector />
@@ -51,11 +65,13 @@
 				<button
 					type="button"
 					onclick={toggleMenu}
-					class="md:hidden p-2 rounded-lg hover:bg-[var(--bg-elevated)] transition"
+					class="md:hidden p-2 rounded-lg transition"
+					class:hover:bg-[var(--accent-hover)]={theme.isKids}
+					class:hover:bg-[var(--bg-elevated)]={!theme.isKids}
 					aria-label="Toggle menu"
 					aria-expanded={mobileMenuOpen}
 				>
-					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--navbar-text);">
 						<path
 							stroke-linecap="round"
 							stroke-linejoin="round"
@@ -69,12 +85,12 @@
 
 		<!-- Mobile Menu -->
 		{#if mobileMenuOpen}
-			<div class="md:hidden pb-4 border-t" style="border-color: var(--border);">
+			<div class="md:hidden pb-4 border-t" style="border-color: {theme.isKids ? 'rgba(255,255,255,0.3)' : 'var(--border)'};">
 				<a
 					href="/"
 					onclick={toggleMenu}
 					class="block px-3 py-2 rounded hover:bg-[var(--bg-elevated)]"
-					style="color: var(--text-secondary);"
+					style="color: var(--navbar-text);"
 				>
 					Market
 				</a>
@@ -82,7 +98,7 @@
 					href="/create"
 					onclick={toggleMenu}
 					class="block px-3 py-2 rounded hover:bg-[var(--bg-elevated)]"
-					style="color: var(--text-secondary);"
+					style="color: var(--navbar-text);"
 				>
 					Create Listing
 				</a>
@@ -90,7 +106,7 @@
 					href="/dashboard"
 					onclick={toggleMenu}
 					class="block px-3 py-2 rounded hover:bg-[var(--bg-elevated)]"
-					style="color: var(--text-secondary);"
+					style="color: var(--navbar-text);"
 				>
 					Dashboard
 				</a>

@@ -56,39 +56,39 @@
 	</div>
 
 {:else if theme.isKids}
-	<!-- Kids: large, colorful, playful with pulse on urgency -->
+	<!-- Kids: Mattel-style countdown with red borders -->
 	<div class="text-center" aria-label="Time remaining">
 		{#if isEnded}
-			<div class="text-rose-600 font-bold text-lg">Auction Ended!</div>
+			<div class="text-2xl font-black mt-1" style="color: var(--accent);">Auction Ended! 🏁</div>
 		{:else}
 			<div
 				class="flex justify-center gap-1.5 items-center {isUrgent ? 'kids-pulse-urgent' : ''}"
 				aria-live="polite"
 			>
 				{#if days > 0}
-					<div class="text-center bg-[var(--bg-elevated)] rounded-xl px-3 py-1.5 border-2 border-[var(--border)]">
-						<div class="text-2xl font-black" style="color: var(--accent);">{days}</div>
-						<div class="text-xs font-semibold" style="color: var(--text-muted);">days</div>
+					<div class="text-center bg-white rounded-xl px-3 py-1.5 border-2 border-[var(--accent)] shadow-sm">
+						<div class="text-2xl font-black" style="color: var(--text-primary);">{days}</div>
+						<div class="text-xs font-black uppercase tracking-wide" style="color: var(--accent);">days</div>
 					</div>
-					<span class="text-xl font-black" style="color: var(--text-muted);">:</span>
+					<span class="text-xl font-black" style="color: var(--accent);">:</span>
 				{/if}
-				<div class="text-center bg-[var(--bg-elevated)] rounded-xl px-3 py-1.5 border-2 border-[var(--border)]">
-					<div class="text-2xl font-black" style="color: {isUrgent ? '#e11d48' : 'var(--accent)'};">{hours.toString().padStart(2, '0')}</div>
-					<div class="text-xs font-semibold" style="color: var(--text-muted);">hrs</div>
+				<div class="text-center bg-white rounded-xl px-3 py-1.5 border-2 border-[var(--accent)] shadow-sm">
+					<div class="text-2xl font-black" style="color: {isUrgent ? 'var(--accent)' : 'var(--text-primary)'};">{hours.toString().padStart(2, '0')}</div>
+					<div class="text-xs font-black uppercase tracking-wide" style="color: var(--accent);">hrs</div>
 				</div>
-				<span class="text-xl font-black" style="color: var(--text-muted);">:</span>
-				<div class="text-center bg-[var(--bg-elevated)] rounded-xl px-3 py-1.5 border-2 border-[var(--border)]">
-					<div class="text-2xl font-black" style="color: {isUrgent ? '#e11d48' : 'var(--accent)'};">{minutes.toString().padStart(2, '0')}</div>
-					<div class="text-xs font-semibold" style="color: var(--text-muted);">min</div>
+				<span class="text-xl font-black" style="color: var(--accent);">:</span>
+				<div class="text-center bg-white rounded-xl px-3 py-1.5 border-2 border-[var(--accent)] shadow-sm">
+					<div class="text-2xl font-black" style="color: {isUrgent ? 'var(--accent)' : 'var(--text-primary)'};">{minutes.toString().padStart(2, '0')}</div>
+					<div class="text-xs font-black uppercase tracking-wide" style="color: var(--accent);">min</div>
 				</div>
-				<span class="text-xl font-black" style="color: var(--text-muted);">:</span>
-				<div class="text-center bg-[var(--bg-elevated)] rounded-xl px-3 py-1.5 border-2 border-[var(--border)]">
-					<div class="text-2xl font-black" style="color: {isUrgent ? '#e11d48' : 'var(--accent)'};">{seconds.toString().padStart(2, '0')}</div>
-					<div class="text-xs font-semibold" style="color: var(--text-muted);">sec</div>
+				<span class="text-xl font-black" style="color: var(--accent);">:</span>
+				<div class="text-center bg-white rounded-xl px-3 py-1.5 border-2 border-[var(--accent)] shadow-sm">
+					<div class="text-2xl font-black" style="color: {isUrgent ? 'var(--accent)' : 'var(--text-primary)'};">{seconds.toString().padStart(2, '0')}</div>
+					<div class="text-xs font-black uppercase tracking-wide" style="color: var(--accent);">sec</div>
 				</div>
 			</div>
 			{#if isUrgent}
-				<p class="text-xs font-bold text-rose-600 mt-1" aria-live="assertive">Hurry — ending soon!</p>
+				<p class="text-xs font-black mt-1" style="color: var(--accent);" aria-live="assertive">Hurry — ending soon!</p>
 			{/if}
 		{/if}
 	</div>

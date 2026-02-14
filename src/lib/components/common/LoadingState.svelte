@@ -57,20 +57,22 @@
 		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 			{#each Array(count) as _, i (i)}
 				<div
-					class="bg-white border-2 border-[var(--border)] rounded-2xl overflow-hidden"
+					class="bg-white border border-[var(--border)] rounded-2xl overflow-hidden"
 					style="animation: kids-bounce {1.2 + i * 0.15}s ease-in-out infinite; animation-delay: {i * 0.12}s;"
 				>
+					<!-- Red accent stripe -->
+					<div class="h-1.5 w-full bg-[var(--accent)] opacity-30"></div>
 					<!-- Image placeholder -->
 					<div
-						class="h-56 rounded-t-2xl"
-						style="background: linear-gradient(90deg, #e0e7ff 25%, #c7d2fe 50%, #e0e7ff 75%); background-size: 200% 100%; animation: shimmer 1.8s ease-in-out infinite;"
+						class="h-56"
+						style="background: linear-gradient(90deg, var(--bg-elevated) 25%, var(--bg-shimmer) 50%, var(--bg-elevated) 75%); background-size: 200% 100%; animation: shimmer 1.8s ease-in-out infinite;"
 					></div>
 					<!-- Text lines placeholder -->
 					<div class="p-6 space-y-3">
-						<div class="h-3 rounded-full w-1/3" style="background-color: var(--bg-elevated);"></div>
-						<div class="h-4 rounded-full w-5/6" style="background-color: var(--bg-elevated);"></div>
-						<div class="h-4 rounded-full w-2/3" style="background-color: var(--bg-elevated);"></div>
-						<div class="h-8 rounded-xl w-1/2 mt-4" style="background-color: var(--bg-elevated);"></div>
+						<div class="h-3 rounded-full w-1/3" style="background-color: var(--bg-skeleton);"></div>
+						<div class="h-4 rounded-full w-5/6" style="background-color: var(--bg-skeleton);"></div>
+						<div class="h-4 rounded-full w-2/3" style="background-color: var(--bg-skeleton);"></div>
+						<div class="h-8 rounded-xl w-1/2 mt-4" style="background-color: var(--bg-skeleton);"></div>
 					</div>
 				</div>
 			{/each}

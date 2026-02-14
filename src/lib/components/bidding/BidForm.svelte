@@ -72,8 +72,8 @@
 	const buttonClasses = $derived.by(() => {
 		if (theme.isKids) {
 			return isValid
-				? 'px-6 py-3 rounded-xl font-black text-base text-white bg-gradient-to-r from-[var(--accent)] to-violet-400 hover:scale-105 shadow-lg'
-				: 'px-6 py-3 rounded-xl font-black text-base text-[var(--text-muted)] bg-[var(--bg-elevated)] cursor-not-allowed opacity-60';
+				? 'px-8 py-3 rounded-full font-black text-base text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] hover:scale-105 shadow-lg shadow-red-200 active:scale-95'
+				: 'px-8 py-3 rounded-full font-black text-base text-[var(--text-faint)] bg-[var(--bg-elevated)] cursor-not-allowed opacity-60';
 		}
 		if (theme.isProfessional) {
 			return isValid
@@ -99,18 +99,18 @@
 </script>
 
 <div
-	class="space-y-4 {celebrating ? 'kids-celebration' : ''}"
+	class="space-y-4"
 	class:space-y-2={theme.isProfessional}
 	class:space-y-6={theme.isKids}
 >
 	<!-- Kids: safety/helpful header -->
 	{#if theme.isKids}
-		<div class="bg-[var(--bg-elevated)] rounded-2xl p-4 border-2 border-[var(--border)]">
-			<p class="text-sm font-bold" style="color: var(--accent);">
+		<div class="bg-[var(--bg-elevated)] rounded-2xl p-4 border-2 border-[var(--accent)]">
+			<p class="text-sm font-black" style="color: var(--accent);">
 				🎮 Place Your Bid!
 			</p>
-			<p class="text-xs mt-1" style="color: var(--text-muted);">
-				Make sure to ask a parent before bidding.
+			<p class="text-xs mt-1 font-semibold" style="color: var(--text-muted);">
+				Ask a parent before bidding!
 			</p>
 		</div>
 	{/if}
@@ -146,11 +146,12 @@
 				onclick={submitBid}
 				disabled={!isValid}
 				class={buttonClasses}
+				class:kids-pop={theme.isKids && celebrating}
 				style="transition: all var(--transition-fast);"
 				aria-label={isValid ? `Place bid of ${formatCents(parsedAmount || minimumBid)}` : 'Bid amount too low'}
 			>
 				{#if theme.isKids}
-					{isValid ? '🎉 Bid!' : 'Bid!'}
+					{isValid ? '🛒 BID NOW!' : 'BID!'}
 				{:else if theme.isProfessional}
 					BID
 				{:else}

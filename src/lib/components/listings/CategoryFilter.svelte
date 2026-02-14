@@ -22,6 +22,9 @@
 	let dropdownOpen = $state(false);
 	let dropdownEl: HTMLDivElement | undefined = $state(undefined);
 
+	// Kids mode: track hovered category for wiggle animation
+	let hoveredCategory = $state<string | null>(null);
+
 	function selectCategory(cat: string | null) {
 		selected = cat;
 		dropdownOpen = false;
@@ -98,16 +101,19 @@
 	</div>
 
 {:else if theme.isKids}
-	<!-- Kids: large colorful buttons with emoji -->
+	<!-- Kids: Mattel-style bold pill buttons with wiggle -->
 	<div class="flex flex-wrap gap-3" role="group" aria-label="Filter by category">
 		<button
 			type="button"
 			onclick={() => (selected = null)}
+			onmouseenter={() => (hoveredCategory = '__all__')}
+			onmouseleave={() => (hoveredCategory = null)}
 			aria-pressed={selected === null}
-			class="flex items-center gap-2 rounded-xl font-bold border-2 px-5 py-2.5 text-sm
+			class="flex items-center gap-2 rounded-full font-black border-2 px-6 py-2.5 text-sm shadow-sm
 				{selected === null
-					? 'border-[var(--accent)] bg-[var(--accent)] text-white'
-					: 'border-[var(--border)] bg-white text-[var(--text-primary)] hover:border-[var(--accent)]'}"
+					? 'bg-[var(--accent)] border-[var(--accent)] text-white shadow-md'
+					: 'bg-white border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--accent)] hover:text-[var(--accent)]'}"
+			class:kids-wiggle={hoveredCategory === '__all__'}
 			style="transition: all var(--transition-fast);"
 		>
 			<span aria-hidden="true">🎯</span>
@@ -118,11 +124,14 @@
 			<button
 				type="button"
 				onclick={() => (selected = category)}
+				onmouseenter={() => (hoveredCategory = category)}
+				onmouseleave={() => (hoveredCategory = null)}
 				aria-pressed={selected === category}
-				class="flex items-center gap-2 rounded-xl font-bold border-2 px-5 py-2.5 text-sm
+				class="flex items-center gap-2 rounded-full font-black border-2 px-6 py-2.5 text-sm shadow-sm
 					{selected === category
-						? 'border-[var(--accent)] bg-[var(--accent)] text-white'
-						: 'border-[var(--border)] bg-white text-[var(--text-primary)] hover:border-[var(--accent)]'}"
+						? 'bg-[var(--accent)] border-[var(--accent)] text-white shadow-md'
+						: 'bg-white border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--accent)] hover:text-[var(--accent)]'}"
+				class:kids-wiggle={hoveredCategory === category}
 				style="transition: all var(--transition-fast);"
 			>
 				<span aria-hidden="true">{categoryEmoji[category] ?? '🎁'}</span>
