@@ -29,17 +29,17 @@
 			<div>🧸 🎲 🧱</div>
 			<div class="text-4xl mt-1">🤔💭❓</div>
 		</div>
-		<h2 class="text-3xl font-black mb-3" style="color: #1a1a1a;">
+		<h2 class="text-3xl font-black mb-3" style="color: var(--text-primary);">
 			{title}
 		</h2>
-		<p class="text-base font-semibold mb-6" style="color: #555555;">
+		<p class="text-base font-semibold mb-6" style="color: var(--text-muted);">
 			{message}
 		</p>
 		{#if actionLabel}
 			<a
 				href={actionHref}
 				class="inline-flex items-center gap-2 px-8 py-3 rounded-full font-black text-base text-white shadow-lg shadow-red-200"
-				style="background-color: #ea0029;"
+				style="background-color: var(--accent);"
 			>
 				🎯 {actionLabel}
 			</a>
