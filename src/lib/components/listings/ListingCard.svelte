@@ -66,7 +66,7 @@
 	});
 
 	const dividerClasses = $derived.by(() => {
-		if (theme.isKids) return 'my-3 border-t-2 border-[#ea0029] opacity-15';
+		if (theme.isKids) return 'my-3 border-t-2 border-[#ea0029] border-opacity-15';
 		if (theme.isProfessional) return 'my-3 border-t border-[var(--border)]';
 		return 'my-3 border-t border-[var(--border)]';
 	});
