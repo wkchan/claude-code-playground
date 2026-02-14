@@ -64,10 +64,9 @@
 		class="inline-flex flex-col items-center justify-center font-black rounded-xl border-2 leading-none shadow-md"
 		style="
 			background-color: #ffffff;
-			border-color: var(--accent);
-			color: var(--text-primary);
-			transform: rotate(-2deg);
-			box-shadow: 2px 2px 0px var(--accent);
+			border-color: #ea0029;
+			color: #1a1a1a;
+			box-shadow: 2px 2px 0px #ea0029;
 			{size === 'xs' ? 'padding: 4px 8px; font-size: 0.65rem;' :
 			 size === 'sm' ? 'padding: 5px 9px; font-size: 0.7rem;' :
 			 size === 'md' ? 'padding: 6px 12px; font-size: 0.8rem;' :
