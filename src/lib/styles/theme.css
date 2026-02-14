@@ -105,7 +105,7 @@
   --border-focus:   #ea0029; /* red focus rings */
   
   /* Skeleton/Placeholder backgrounds */
-  --skeleton-bg:    #f3f4f6; /* gray-100 for loading placeholders */
+  --skeleton-bg:    var(--bg-skeleton); /* alias to keep a single source of truth */
 
   /* Navbar — Bold Mattel Red */
   --navbar-bg:      #ea0029; /* bold Mattel red navbar */
