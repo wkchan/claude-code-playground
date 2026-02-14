@@ -66,7 +66,6 @@
 			background-color: #ffffff;
 			border-color: #ea0029;
 			color: #1a1a1a;
-			transform: rotate(-2deg);
 			box-shadow: 2px 2px 0px #ea0029;
 			{size === 'xs' ? 'padding: 4px 8px; font-size: 0.65rem;' :
 			 size === 'sm' ? 'padding: 5px 9px; font-size: 0.7rem;' :
