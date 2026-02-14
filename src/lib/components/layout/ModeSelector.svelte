@@ -57,7 +57,7 @@
 		aria-label="Switch display mode. Current: {currentMode.label}"
 		class="flex items-center gap-2 px-3 text-sm font-medium
 			{theme.isKids
-				? 'rounded-full border border-white bg-white text-[var(--text-primary)] hover:bg-[#FFDA00] hover:border-[#FFDA00]'
+				? 'rounded-full border border-white bg-white text-[var(--text-primary)] hover:bg-[var(--navbar-accent)] hover:border-[var(--navbar-accent)]'
 				: 'rounded-lg border border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:border-[var(--border-hover)]'}"
 		style="min-height: var(--touch-min); padding-top: var(--btn-py); padding-bottom: var(--btn-py); transition: all var(--transition-fast);"
 	>
