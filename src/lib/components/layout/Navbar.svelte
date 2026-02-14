@@ -47,16 +47,16 @@
 
 			<!-- Desktop Navigation -->
 			<div class="hidden md:flex items-center gap-8">
-				<a href="/" class="hover:opacity-100 transition" style="color: var(--navbar-text); opacity: 0.85;">Market</a>
-				<a href="/create" class="hover:opacity-100 transition" style="color: var(--navbar-text); opacity: 0.85;">Create Listing</a>
-				<a href="/dashboard" class="hover:opacity-100 transition" style="color: var(--navbar-text); opacity: 0.85;">Dashboard</a>
+				<a href="/" class="hover:opacity-100 transition" style="color: var(--navbar-text); opacity: 0.9;">Market</a>
+				<a href="/create" class="hover:opacity-100 transition" style="color: var(--navbar-text); opacity: 0.9;">Create Listing</a>
+				<a href="/dashboard" class="hover:opacity-100 transition" style="color: var(--navbar-text); opacity: 0.9;">Dashboard</a>
 			</div>
 
 			<!-- Right side: user + mode switcher -->
 			<div class="flex items-center gap-3">
 				<div class="text-right hidden sm:block">
 					<p class="text-sm font-medium" style="color: var(--navbar-text);">{currentUser.username}</p>
-					<p class="text-xs" style="color: var(--navbar-text); opacity: 0.85;">Member</p>
+					<p class="text-xs" style="color: var(--navbar-text); opacity: 0.9;">Member</p>
 				</div>
 
 				<ModeSelector />
