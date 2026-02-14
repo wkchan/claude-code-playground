@@ -106,14 +106,14 @@
 		<button
 			type="button"
 			onclick={() => (selected = null)}
-			onmouseenter={() => (hoveredCategory = null)}
+			onmouseenter={() => (hoveredCategory = '__all__')}
 			onmouseleave={() => (hoveredCategory = null)}
 			aria-pressed={selected === null}
 			class="flex items-center gap-2 rounded-full font-black border-2 px-6 py-2.5 text-sm shadow-sm
 				{selected === null
 					? 'bg-[var(--accent)] border-[var(--accent)] text-white shadow-md'
 					: 'bg-white border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--accent)] hover:text-[var(--accent)]'}"
-			class:kids-wiggle={hoveredCategory === null}
+			class:kids-wiggle={hoveredCategory === '__all__'}
 			style="transition: all var(--transition-fast);"
 		>
 			<span aria-hidden="true">🎯</span>
