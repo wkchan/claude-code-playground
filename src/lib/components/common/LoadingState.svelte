@@ -65,14 +65,14 @@
 					<!-- Image placeholder -->
 					<div
 						class="h-56"
-						style="background: linear-gradient(90deg, #fff5f5 25%, #fecaca 50%, #fff5f5 75%); background-size: 200% 100%; animation: shimmer 1.8s ease-in-out infinite;"
+						style="background: linear-gradient(90deg, var(--bg-elevated) 25%, var(--bg-shimmer) 50%, var(--bg-elevated) 75%); background-size: 200% 100%; animation: shimmer 1.8s ease-in-out infinite;"
 					></div>
 					<!-- Text lines placeholder -->
 					<div class="p-6 space-y-3">
-						<div class="h-3 rounded-full w-1/3" style="background-color: var(--skeleton-bg);"></div>
-						<div class="h-4 rounded-full w-5/6" style="background-color: var(--skeleton-bg);"></div>
-						<div class="h-4 rounded-full w-2/3" style="background-color: var(--skeleton-bg);"></div>
-						<div class="h-8 rounded-xl w-1/2 mt-4" style="background-color: var(--skeleton-bg);"></div>
+						<div class="h-3 rounded-full w-1/3" style="background-color: var(--bg-skeleton);"></div>
+						<div class="h-4 rounded-full w-5/6" style="background-color: var(--bg-skeleton);"></div>
+						<div class="h-4 rounded-full w-2/3" style="background-color: var(--bg-skeleton);"></div>
+						<div class="h-8 rounded-xl w-1/2 mt-4" style="background-color: var(--bg-skeleton);"></div>
 					</div>
 				</div>
 			{/each}

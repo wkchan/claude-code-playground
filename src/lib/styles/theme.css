@@ -84,6 +84,8 @@
   --bg-surface:    #ffffff;
   --bg-elevated:   #fff5f5; /* warm white tint */
   --bg-input:      #ffffff;
+  --bg-shimmer:    #fecaca; /* light pink for shimmer animation */
+  --bg-skeleton:   #f3f4f6; /* light gray for skeleton placeholders */
 
   /* Text — Mattel Kids: Near-black on white */
   --text-primary:   #1a1a1a; /* near-black */
