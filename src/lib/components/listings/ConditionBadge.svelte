@@ -48,10 +48,10 @@
 	};
 
 	const kidsSizeClasses: Record<string, string> = {
-		xs: 'px-2 py-1 text-xs',
-		sm: 'px-3 py-1.5 text-sm',
-		md: 'px-4 py-2 text-sm',
-		lg: 'px-5 py-2.5 text-base'
+		xs: 'px-2 py-1 text-[0.65rem]',
+		sm: 'px-[9px] py-[5px] text-[0.7rem]',
+		md: 'px-3 py-1.5 text-[0.8rem]',
+		lg: 'px-[14px] py-2 text-[0.9rem]'
 	};
 
 	const color = $derived(theme.isKids ? kidsColors[condition] : defaultColors[condition]);
@@ -61,25 +61,21 @@
 {#if theme.isKids}
 	<!-- Kids mode: sticker-style price tag badge -->
 	<span
-		class="inline-flex flex-col items-center justify-center font-black rounded-xl border-2 leading-none shadow-md"
+		class="inline-flex flex-col items-center justify-center font-black rounded-xl border-2 leading-none shadow-md {kidsSizeClasses[size]}"
 		style="
-			background-color: #ffffff;
-			border-color: #ea0029;
-			color: #1a1a1a;
+			background-color: var(--bg-surface);
+			border-color: var(--accent);
+			color: var(--text-primary);
 			transform: rotate(-2deg);
-			box-shadow: 2px 2px 0px #ea0029;
-			{size === 'xs' ? 'padding: 4px 8px; font-size: 0.65rem;' :
-			 size === 'sm' ? 'padding: 5px 9px; font-size: 0.7rem;' :
-			 size === 'md' ? 'padding: 6px 12px; font-size: 0.8rem;' :
-			                'padding: 8px 14px; font-size: 0.9rem;'}
+			box-shadow: 2px 2px 0px var(--accent);
 		"
 		title="Grade {condition} - {CONDITION_LABELS[condition]} — {kidsStarCount[condition]} out of 5 stars"
 	>
-		<span style="color: #ea0029; font-size: 1.1em;">{condition}</span>
+		<span style="color: var(--accent); font-size: 1.1em;">{condition}</span>
 		<span aria-hidden="true" class="text-yellow-400" style="font-size: 0.9em; letter-spacing: -0.05em;">{kidsStars[condition]}</span>
 		<span class="sr-only">{kidsStarCount[condition]} out of 5 stars —</span>
 		{#if size === 'lg'}
-			<span class="mt-0.5 text-[0.6em]" style="color: #555555;">{CONDITION_LABELS[condition]}</span>
+			<span class="mt-0.5 text-[0.6em]" style="color: var(--text-muted);">{CONDITION_LABELS[condition]}</span>
 		{/if}
 	</span>
 {:else if theme.isProfessional}
