@@ -55,10 +55,11 @@
 		aria-haspopup="listbox"
 		aria-expanded={open}
 		aria-label="Switch display mode. Current: {currentMode.label}"
-		class="flex items-center gap-2 px-3 rounded-lg border border-[var(--border)]
-			bg-[var(--bg-elevated)] text-[var(--text-primary)] text-sm font-medium
-			hover:border-[var(--border-hover)]"
-		style="min-height: var(--touch-min); padding-top: var(--btn-py); padding-bottom: var(--btn-py); transition: border-color var(--transition-fast);"
+		class="flex items-center gap-2 px-3 text-sm font-medium
+			{theme.isKids
+				? 'rounded-full border border-white bg-white text-[#1a1a1a] hover:bg-[#FFDA00] hover:border-[#FFDA00]'
+				: 'rounded-lg border border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:border-[var(--border-hover)]'}"
+		style="min-height: var(--touch-min); padding-top: var(--btn-py); padding-bottom: var(--btn-py); transition: all var(--transition-fast);"
 	>
 		<span aria-hidden="true" class="text-base">{currentMode.icon}</span>
 		<span>{currentMode.label}</span>
@@ -78,8 +79,10 @@
 		<div
 			role="listbox"
 			aria-label="Display mode options"
-			class="absolute right-0 mt-2 w-52 rounded-xl border border-[var(--border)]
-				bg-[var(--bg-surface)] shadow-xl z-50 overflow-hidden"
+			class="absolute right-0 mt-2 w-52 overflow-hidden shadow-xl z-50
+				{theme.isKids
+					? 'rounded-2xl border-2 border-[#ea0029] bg-white'
+					: 'rounded-xl border border-[var(--border)] bg-[var(--bg-surface)]'}"
 		>
 			{#each modes as modeOption (modeOption.value)}
 				<button

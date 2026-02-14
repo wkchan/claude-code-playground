@@ -36,6 +36,8 @@
   --navbar-bg:      #111827; /* slate-900 */
   --navbar-border:  #1e293b; /* slate-800 */
   --navbar-height:  4rem;    /* h-16 */
+  --navbar-text:    var(--text-primary);
+  --navbar-accent:  var(--accent);
 
   /* Card */
   --card-image-height: 12rem; /* h-48 */
@@ -77,32 +79,34 @@
    Kids Mode (Indigo + Violet, light, playful)
    ───────────────────────────────────────── */
 [data-mode="kids"] {
-  /* Backgrounds */
-  --bg-page:       #eef2ff; /* indigo-50 */
+  /* Backgrounds — Mattel Kids: Pure white + warm tint */
+  --bg-page:       #ffffff; /* pure white */
   --bg-surface:    #ffffff;
-  --bg-elevated:   #e0e7ff; /* indigo-100 */
+  --bg-elevated:   #fff5f5; /* warm white tint */
   --bg-input:      #ffffff;
 
-  /* Text */
-  --text-primary:   #312e81; /* indigo-900 */
-  --text-secondary: #3730a3; /* indigo-800 */
-  --text-muted:     #4f46e5; /* indigo-600 */
-  --text-faint:     #6366f1; /* indigo-500 */
+  /* Text — Mattel Kids: Near-black on white */
+  --text-primary:   #1a1a1a; /* near-black */
+  --text-secondary: #2d2d2d; /* slightly softer near-black */
+  --text-muted:     #555555; /* medium gray */
+  --text-faint:     #888888; /* light gray */
 
-  /* Accent */
-  --accent:         #8b5cf6; /* violet-500 */
-  --accent-hover:   #7c3aed; /* violet-600 */
-  --accent-text:    #7c3aed; /* violet-600 — for text on light bg */
+  /* Accent — Mattel Red */
+  --accent:         #ea0029; /* Mattel red */
+  --accent-hover:   #c8001f; /* darker Mattel red */
+  --accent-text:    #ea0029; /* red for text on light bg */
 
   /* Borders */
-  --border:         #c7d2fe; /* indigo-200 */
-  --border-hover:   #8b5cf6; /* violet-500 */
-  --border-focus:   #8b5cf6; /* violet-500 */
+  --border:         #e5e7eb; /* neutral light gray */
+  --border-hover:   #ea0029; /* red on hover */
+  --border-focus:   #ea0029; /* red focus rings */
 
-  /* Navbar */
-  --navbar-bg:      #ffffff;
-  --navbar-border:  #c7d2fe; /* indigo-200 */
+  /* Navbar — Bold Mattel Red */
+  --navbar-bg:      #ea0029; /* bold Mattel red navbar */
+  --navbar-border:  #c8001f; /* darker red separator */
   --navbar-height:  5rem;    /* h-20 */
+  --navbar-text:    #ffffff; /* white text on red navbar */
+  --navbar-accent:  #FFDA00; /* Mattel yellow for logo badge */
 
   /* Card */
   --card-image-height: 14rem;   /* h-56 */
@@ -114,30 +118,30 @@
   --font-body:    1rem;    /* 16px */
   --font-small:   0.875rem; /* 14px */
   --font-mono:    1rem;    /* 16px */
-  --font-weight-body: 500;
+  --font-weight-body: 600; /* bumped from 500 for heavier default weight */
 
   /* Spacing */
   --gap-grid:  1.5rem; /* gap-6, wider on desktop */
 
-  /* Animations */
-  --transition-fast:   300ms cubic-bezier(0.34, 1.56, 0.64, 1);
-  --transition-base:   400ms ease-out;
-  --transition-hover:  300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Animations — Faster, bouncier */
+  --transition-fast:   250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-base:   350ms ease-out;
+  --transition-hover:  250ms cubic-bezier(0.34, 1.56, 0.64, 1);
   --animation-enabled: 1;
 
   /* Touch targets */
   --touch-min:   3.5rem;  /* 56px */
   --btn-py:      0.75rem; /* py-3 */
   --btn-px:      1.5rem;  /* px-6 */
-  --btn-radius:  0.75rem; /* rounded-xl */
+  --btn-radius:  9999px;  /* pill-shaped by default */
 
   /* Status */
-  --success-bg:   #d1fae5; /* emerald-100 */
-  --success-text: #065f46; /* emerald-800 */
-  --success-border:#6ee7b7;/* emerald-300 */
-  --error-bg:     #ffe4e6; /* rose-100 */
-  --error-text:   #9f1239; /* rose-800 */
-  --error-border: #fda4af; /* rose-300 */
+  --success-bg:    #d1fae5;  /* emerald-100 */
+  --success-text:  #065f46;  /* emerald-800 */
+  --success-border:#6ee7b7;  /* emerald-300 */
+  --error-bg:      #fff1f2;  /* rose-50 on white bg */
+  --error-text:    #9f1239;  /* rose-800 */
+  --error-border:  #fda4af;  /* rose-300 */
 }
 
 /* ─────────────────────────────────────────
@@ -170,6 +174,8 @@
   --navbar-bg:      #1e293b; /* slate-800 */
   --navbar-border:  #334155; /* slate-700 */
   --navbar-height:  3.5rem;  /* h-14 */
+  --navbar-text:    var(--text-primary);
+  --navbar-accent:  var(--accent);
 
   /* Card */
   --card-image-height: 10rem; /* h-40 */
@@ -228,6 +234,27 @@
   100% { transform: scale(1) rotate(0deg); }
 }
 
+/* Mattel Kids: Wiggle animation for category button hover */
+@keyframes kids-wiggle {
+  0%   { transform: rotate(0deg) scale(1); }
+  15%  { transform: rotate(-4deg) scale(1.05); }
+  30%  { transform: rotate(4deg) scale(1.07); }
+  45%  { transform: rotate(-3deg) scale(1.06); }
+  60%  { transform: rotate(3deg) scale(1.05); }
+  75%  { transform: rotate(-1deg) scale(1.02); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+/* Mattel Kids: Pop animation for bid success moment */
+@keyframes kids-pop {
+  0%   { transform: scale(1); }
+  20%  { transform: scale(1.18); }
+  40%  { transform: scale(0.92); }
+  60%  { transform: scale(1.10); }
+  80%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
 [data-mode="kids"] .kids-bounce {
   animation: kids-bounce 1.5s ease-in-out infinite;
 }
@@ -238,6 +265,14 @@
 
 [data-mode="kids"] .kids-celebration {
   animation: kids-celebration 0.6s ease-in-out;
+}
+
+[data-mode="kids"] .kids-wiggle {
+  animation: kids-wiggle 0.5s ease-in-out;
+}
+
+[data-mode="kids"] .kids-pop {
+  animation: kids-pop 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
 }
 
 /* Professional: disable all CSS transitions/animations */
